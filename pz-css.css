@@ -1,0 +1,301 @@
+
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: kindergarten;
+  src: url('material/kindergarten.ttf');
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+:root {
+  /* The intrinsic width of the underline stroke (in pixels). This is 
+   * the same as the height of the cap images. Don't specify the
+   * units! This is because of some of the calculations we do later on. */
+  --underline-intrinsic-width: 8;
+  
+  /* The actual width of the underline stroke we want to render (in pixels).
+   * You can modify this, and the sizing and positioning should be calculated
+   * accordingly. Again, Don't specify the units! */
+  --underline-width: 12;
+  
+  /* The colour used to draw the underline. It should match the colour
+   * used in the cap images... unfortunately we can't modify the SVG
+   * fill via CSS because it's a background image. */
+  --underline-color: #f1a1e3;
+  
+  /* We need to know the width of the cap images so that we
+   * can position everything on the x axis accordingly. */
+  --underline-cap-width: 4px;
+  
+  /* The border is positioned relative to the bottom of the line.
+   * We can move it upwards a little to create an overlap effect. */
+  --underline-offset-y: -2px;
+  
+  /* The padding to add to the x axis. By default, the caps would be
+   * aligned with the beginning and end of the line. */
+  --underline-padding-x: 0.12em;
+  
+  /* The cap images to use that form the left and right rounded
+   * shape. I guess these could be any shape, they don't
+   * necessarily have to be round 🙂.
+   */
+  --cap-image-left: url(https://files-d4s40otz1.now.sh/left.svg);
+  --cap-image-right: url(https://files-4vvqilj8v.now.sh/right.svg);
+}
+  
+.heading {
+  display: inline;
+  --underline-width-scale: calc(var(--underline-width) / var(--underline-intrinsic-width));
+  padding: 0 calc(var(--underline-padding-x) + calc(var(--underline-cap-width) * var(--underline-width-scale)));
+  box-decoration-break: clone;
+  background-repeat: no-repeat;
+  color: black;
+  background-image:
+    linear-gradient(180deg, var(--underline-color), var(--underline-color)),
+    var(--cap-image-left),
+    var(--cap-image-right);
+  background-position-x:
+    calc(var(--underline-cap-width) * var(--underline-width-scale)),
+    0,
+    100%;
+  background-position-y: calc(100% - var(--underline-offset-y) * -1);
+  background-size:
+    calc(100% - calc(var(--underline-cap-width) * var(--underline-width-scale) * 2)) calc(var(--underline-width) * 1px),
+    auto calc(var(--underline-width) * 1px),
+    auto calc(var(--underline-width) * 1px);
+}
+
+.heading--2 {
+  --underline-width: 8;
+  --underline-offset-y: -2px;
+}
+
+.heading--3 {
+  font-size: 3rem;
+  font-weight: bold;
+  --underline-width: 20;
+  --underline-offset-y: -2px;
+  --cap-image-left: url(https://files-6lc03kjqt.now.sh/left-2.svg);
+  --cap-image-right: url(https://files.ash1.now.sh/right-2.svg);
+}
+
+/* Header/logo Title */
+.header {
+  padding: 0;
+  text-align: center;
+  background: #f1a1e3;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*Accordion*/
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.imgzine {
+  -webkit-transform: rotate(270deg);
+-moz-transform: rotate(270deg);
+-o-transform: rotate(270deg);
+-ms-transform: rotate(270deg);
+transform: rotate(270deg);
+padding: 0px;
+margin: 100px;
+}
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 10px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu {
+  text-align: center;
+  padding: 12px 20px;
+  background-color: #f1a1e3;
+  font-size: 32px;
+  border: none;
+  outline: none;
+  font-family: kindergarten;
+  
+}
+
+.menu a {
+  padding: 14px;
+  text-decoration: none;
+  color: white;
+}
+.menu a:hover{
+  background-color: white;
+  color: #f1a1e3;
+}
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  text-align: center;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display:block;
+  color: white;
+  margin: auto;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.menu {
+
+}
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  color: white;
+  background: #f1a1e3;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #f1a1e3;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
+/*butão download*/
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '♥';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}

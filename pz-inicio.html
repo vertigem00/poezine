@@ -1,0 +1,92 @@
+<!Doctype html>
+<html lang="pt">
+    <head>
+        <title>Poezine</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="wodth+device-width, initial-scale=1">
+</head>
+
+<link rel="stylesheet" typer= "text/css" href="pz-css.css">
+
+<div class="header">
+    <img style="width: 60%;" src="material/poezine-rosa.png" alt="">
+</div>
+
+<div class="menu">
+    <a href="pz-contato.html">Contato</a>
+    <a href="pz-inicio.html">Inicio</a>
+    <a href="pz-oficinas.html">Oficinas</a>
+</div>
+
+<div class="row">
+<div class="main">
+    <h2 class="heading">O que é Poezine?</h2>
+
+    <p><b>Poezine</b> é um projeto criado por Alessandro Vertigem, que utiliza a fanzine e a poesia como meio para veicular suas percepções acerca do mundo, das pessoas e de si mesmo.<br>
+    </p>
+    <p>Cada poezine carrega versos únicos, que podem estar ligados em um tema maior ou não.
+    </p>
+    <img src="material/img/zineinit.jpg" alt="Pequenos relatos que trago no peito" height="240px" width="432px" style="position: relative;">
+    <br>
+    <br>
+    <h2 class="heading">Poezines:</h2>
+    <br><br>
+
+<button class="accordion">Pequenos relatos que trago no peito</button>
+<div class="panel">
+  <p>Essa foi a primeira poezine a ser publicada, nela há poesias que escrevi quando era ainda uma criança. São versos que acompanham a minha trajetória de vida. São pequenos relatos que trago no peito.</p>
+  <p><a href="material/ebook/pequenos relatos que trago no peito-ebook.pdf" target="blank"><button class="button" type="button"><span>Faça o download! </span></button></a></p>
+</div>
+
+<button class="accordion">Versos que vi e não pude esquecer</button>
+<div class="panel">
+  <p>Aqui estão compiladas poesias e ilustrações, são versos rápidos, que surgiram de relance em minha mente. Também fiz algumas experimentações com a tipografia das poesias. Versos que vi e não pude esquecer é uma grande experimentação,
+    foi a primeira que utilizei ilustrações e a primeira vez que tentei ilustrar os versos com a própria tipografia.
+  </p>
+  <p><a href="material/ebook/versosquevienãopudeesquecer-ebook.pdf" target="blank"><button class="button" type="button"><span>Faça o download! </span></button></a></p>
+</div>
+
+<button class="accordion">Sol Cacto</button>
+<div class="panel">
+  <p>Sol Cacto são versos que falam sobre a influência que o sertão tem sobre nós e de como nos deixa semelhantes aos cactos. É resultado da minha experiência de vida no sertão, de tudo que aprendi
+    até aqui. É minha obra mais completa, conceitualmente falando.
+  </p>
+  <p><a href="material/ebook//solcacto-ebook.pdf" target="blank"><button class="button" type="button"><span>Faça o download! </span></button></a></p>
+
+</div>
+</div>
+
+</div>
+
+
+<div class="footer">
+    <h2>Footer</h2>
+</div>
+
+</div>
+<script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+    
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+    </script>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+        </script>
+</html>
